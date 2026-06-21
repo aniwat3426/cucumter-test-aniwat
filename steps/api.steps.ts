@@ -127,14 +127,11 @@ Given('I have empty employee id', async function () {
 });
 
 When('I send GET request with empty id', async function () {
-  // ✅ เรียกโดยไม่มี id
   response = await apiContext.get('/api/v1/employees/ ');
 });
 
 Then('the response status should be 404', async function () {
   expect(response.status()).toBe(404);
-
-  // ✅ debug response
   const body = await response.text();
   console.log(body);
 });
